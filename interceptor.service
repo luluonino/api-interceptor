@@ -1,0 +1,15 @@
+[Unit]
+Description=Gunicorn instance to serve Interceptor
+After=network.target
+
+[Service]
+Type=simple
+User=tamr
+Group=www-data
+WorkingDirectory=/<path-to>/api-interceptor
+Environment="PATH=/<path-to>/api-interceptor/venv/bin"
+ExecStart=/bin/bash /etc/systemd/system/interceptor.startup
+
+[Install]
+WantedBy=multi-user.target
+
